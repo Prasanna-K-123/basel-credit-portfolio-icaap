@@ -1,0 +1,55 @@
+{
+  "concentration": {
+    "largest_sector": "industrials",
+    "largest_sector_share": 0.1906107179662354,
+    "obligor_hhi": 0.0005522359778910421,
+    "region_hhi": 0.25161742493028,
+    "sector_hhi": 0.14898650176582848,
+    "top_10_share": 0.030941220722312954,
+    "top_1_share": 0.007342345964858622,
+    "top_20_share": 0.04981044147227204,
+    "total_ead": 16560830691.626247
+  },
+  "economic_capital": {
+    "economic_capital_99": 606687208.5202655,
+    "economic_capital_999": 1109162544.8926668,
+    "es_99": 1017214151.1700402,
+    "es_999": 1505362716.463928,
+    "model_expected_loss": 185055799.8320829,
+    "simulated_mean_loss": 184909580.97664967,
+    "var_99": 791743008.3523483,
+    "var_999": 1294218344.7247498
+  },
+  "icaap": {
+    "capital_coverage_ratio": 1.2,
+    "capital_surplus": 348929393.3404975,
+    "concentration_addon": 6268257.232769787,
+    "core_credit_capital": 1395038335.5189643,
+    "economic_capital_999": 1109162544.8926668,
+    "illustrative_available_capital": 2093576360.0429854,
+    "internal_capital_requirement": 1744646966.702488,
+    "irb_capital": 1395038335.5189643,
+    "stress_overlay": 343340373.95075405
+  },
+  "methodology_flags": {
+    "capital_resources": "illustrative",
+    "portfolio_data": "synthetic illustrative corporate portfolio",
+    "regulatory_status": "methodology demonstration; not regulatory reporting",
+    "stress_scenarios": "illustrative",
+    "transition_matrix": "illustrative"
+  },
+  "portfolio": {
+    "expected_loss": 185055799.8320829,
+    "irb_capital": 1395038335.5189643,
+    "obligors": 5000,
+    "rwa": 17437979193.987053,
+    "total_ead": 16560830691.626247,
+    "weighted_average_lgd": 0.4377966102307779,
+    "weighted_average_pd": 0.02576089525568497
+  },
+  "reverse_stress": {
+    "available_capital": 2093576360.0429854,
+    "breach_pd_multiplier": 1.6,
+    "capital_at_breach": 2108990441.8427713
+  }
+}
