@@ -17,10 +17,10 @@ risk-management implementation, not a regulatory filing and not institution data
 
 ## Economic capital
 
-- Simulated 99% loss VaR: **791,743,008**
-- Simulated 99.9% loss VaR: **1,294,218,345**
-- 99.9% economic capital above model EL: **1,109,162,545**
-- 99.9% Expected Shortfall: **1,505,362,716**
+- Simulated 99% loss VaR: **790,658,536**
+- Simulated 99.9% loss VaR: **1,277,682,361**
+- 99.9% economic capital above model EL: **1,092,626,561**
+- 99.9% Expected Shortfall: **1,456,810,025**
 
 ## Concentration
 

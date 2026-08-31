@@ -11,21 +11,21 @@
     "total_ead": 16560830691.626247
   },
   "economic_capital": {
-    "economic_capital_99": 606687208.5202655,
-    "economic_capital_999": 1109162544.8926668,
-    "es_99": 1017214151.1700402,
-    "es_999": 1505362716.463928,
+    "economic_capital_99": 605602736.6287787,
+    "economic_capital_999": 1092626561.3266366,
+    "es_99": 1001941939.286336,
+    "es_999": 1456810025.2337887,
     "model_expected_loss": 185055799.8320829,
-    "simulated_mean_loss": 184909580.97664967,
-    "var_99": 791743008.3523483,
-    "var_999": 1294218344.7247498
+    "simulated_mean_loss": 185549254.12041253,
+    "var_99": 790658536.4608616,
+    "var_999": 1277682361.1587195
   },
   "icaap": {
     "capital_coverage_ratio": 1.2,
     "capital_surplus": 348929393.3404975,
     "concentration_addon": 6268257.232769787,
     "core_credit_capital": 1395038335.5189643,
-    "economic_capital_999": 1109162544.8926668,
+    "economic_capital_999": 1092626561.3266366,
     "illustrative_available_capital": 2093576360.0429854,
     "internal_capital_requirement": 1744646966.702488,
     "irb_capital": 1395038335.5189643,
