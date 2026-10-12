@@ -31,7 +31,7 @@ The current green CI run generates the following evidence from the deterministic
 - severe PD/LGD/EAD stress raises Basel-style credit capital to approximately **2.768bn**;
 - the illustrative reverse-stress boundary is reached at a **1.60× PD multiplier** with the stated +10pp LGD and +5% EAD assumptions.
 
-These are **model-generated synthetic-portfolio results**, not observed bank performance or regulatory capital figures. See [`outputs/metrics.json`](outputs/metrics.json) and [`reports/generated/icaap_assessment.md`](reports/generated/icaap_assessment.md).
+These are **model-generated synthetic-portfolio results**, not observed bank performance or regulatory capital figures. **Tail-risk scope:** `src/economic_capital.py::_segments` groups obligors by `(rating, sector)`, averages PD/LGD and computes `avg_ead = total_segment_ead / n`. The one-factor simulation draws a **binomial default count per homogeneous segment** and applies that same average EAD/LGD to each default. It does **not** simulate individual heterogeneous obligor exposures, so its tail-loss distribution cannot reproduce within-segment large-name concentration or true obligor-level heterogeneity. The separately reported observed synthetic-portfolio HHI/top-name shares do not cure that model limitation. Historical VaR/ES figures retain this approximate meaning; no new simulation or numeric tail-risk correction is claimed. See [`outputs/metrics.json`](outputs/metrics.json) and [`reports/generated/icaap_assessment.md`](reports/generated/icaap_assessment.md).
 
 ## Why this is separate from a PD-model project
 
