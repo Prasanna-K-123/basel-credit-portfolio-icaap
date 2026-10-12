@@ -39,6 +39,14 @@ A borrower scorecard answers **who is likely to default**. Portfolio risk and ca
 
 This repository therefore focuses on **portfolio-level risk aggregation and capital adequacy**, not another classification model.
 
+## Opt-in obligor-level tail-risk reference (registered, method only)
+
+The historical 100,000-path loss engine continues to group borrowers by `(rating, sector)` and substitutes mean EAD/LGD within a segment. It can suppress exposure heterogeneity and name concentration in its loss distribution; all original VaR/ES numbers and generated reports remain frozen with that limitation.
+
+A separately registered, **opt-in** [borrower-level one-factor loss simulator](src/obligor_economic_capital.py) now uses each obligor's own PD, LGD and EAD, the repository's original PD-dependent Gaussian asset-correlation function, one common systemic factor and independently sampled borrower shocks. The [registered method and tests](docs/OBLIGOR_LEVEL_REFERENCE_PROTOCOL.md) are separate from the old engine; [proof, limitations and exact boundaries](docs/OBLIGOR_LEVEL_REVIEW.md) explain why using segment-mean weights reduces *conditional* loss variance when within-segment weights differ. This is **not proof that 99.9% VaR/ES must increase**.
+
+The new function is **not called by the default pipeline**, does not create a new 5,000-name/100,000-path economic-capital estimate, and has not been validated on any actual bank portfolio. It should not be used as a replacement capital number without a new pre-registered simulation, independent audit and stress sensitivity review.
+
 ## Run locally
 
 ```bash
