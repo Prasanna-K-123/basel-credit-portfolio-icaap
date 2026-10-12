@@ -1,0 +1,13 @@
+# Registered Opt-In Obligor-Level Credit-Loss Simulator (F13)
+
+## Scope and scientific requirement
+The historical default engine `src/economic_capital.py::simulate_one_factor_losses` and accepted 100,000-path synthetic capital report are **frozen and must not be changed or rerun for replacement**. This is a separate opt-in reference algorithm addressing within-(rating,sector) EAD/LGD heterogeneity. It provides no newly registered bank VaR/ES headline or production calibration.
+
+## Mathematical model
+For each obligor i with EAD_i >=0, LGD_i in [0,1], PD_i in [0,1], define rho_i by the repository's existing Basel-style `asset_correlation(PD_i)` (bounded between 0 and1). For independent standard-normal `Z` shared across all names and `epsilon_i` independent across i and from Z, record default when `sqrt(rho_i) Z + sqrt(1-rho_i) epsilon_i < Phi^{-1}(PD_i)`. Portfolio loss is `sum_i default_i EAD_i LGD_i`. PD=0 and PD=1 remain deterministic, not rounded to artificial frequency. No maturity adjustment, netting, recoveries dependence, stochastic LGD, sector-factor or bank-specific claim is introduced.
+
+## Frozen release tests
+(1) fixed seed repeats exactly; (2) changing batch size leaves the statistical model valid but bitwise same streams are NOT promised; (3) single obligor PD0/PD1 produces exact respective 0 and EAD*LGD for each path; (4) two name EAD99/1 with identical PD/LGD has new loss support at 1 and99, which segment-average/binomial baseline replaces with 50-per-default; (5) independent numerical Monte Carlo marginal mean checks expected loss `sum(PD_i EAD_i LGD_i)` within declared finite simulation tolerance; (6) domain errors, NaN, negative EAD, empty portfolio, bad simulation count, nonunique ID reject without silently generating values; (7) original accepted engine, inputs and output artifacts unchanged. Cross-check the analytic conditional-variance difference for homogeneous default conditional probability q within a segment: `Var(sum_i w_i Bernoulli(q)|Z)-Var(w_bar Binomial(n,q)|Z)=q(1-q) sum_i(w_i-w_bar)^2 >=0`. This establishes variance attenuation, **not** a universal ordering of 99.9% VaR or ES.
+
+## Release boundary
+Only source code, proofs and unit tests may be promoted after exact-branch CI passes, with original main and historical results preserved. Any full 5,000-obligor/100,000-trial alternate VaR or business recommendation requires a separately registered, independently audited study before execution or publication. The user-authorized application/outreach HOLD remains intact.
